@@ -60,3 +60,25 @@ function initSmmothScroll(){
     })
 }
 initSmmothScroll()
+
+
+function initAnicaoScroll(){
+    const sections = document.querySelectorAll('.js-scroll')
+    const windownMetade = window.innerHeight * 0.6
+
+    function ativaAniamcao(){
+        sections.forEach((section) =>{
+            const sectionTop = section.getBoundingClientRect().top
+            const isSectionVisible = (sectionTop - windownMetade) < 0
+
+            if(isSectionVisible){
+                section.classList.add('ativo')
+            }
+        })
+    }
+
+    ativaAniamcao()
+
+    window.addEventListener('scroll', ativaAniamcao)
+}
+initAnicaoScroll()
