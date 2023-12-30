@@ -297,3 +297,18 @@ body{
     transform: translate3d(0, 0, 0);
     transition: .3s;
 }
+
+[data-semana]::after{
+    display: inline-block;
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: #E54;
+    border-radius: 50%;
+    margin-left: 4px;
+    border: 1px solid black;
+}
+
+[data-semana].aberto::after{
+    background: #3f4;
+}
