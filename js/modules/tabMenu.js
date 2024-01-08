@@ -1,6 +1,6 @@
 export default function ativaTabMenu() {
-  const listaAnimais = document.querySelectorAll("[data-menu='menu'] li");
-  const listaSection = document.querySelectorAll("[data-tab='content'] section");
+  const listaAnimais = document.querySelectorAll('[data-tab="menu"] li');
+  const listaSection = document.querySelectorAll('[data-tab="content"] section');
 
   function addClassAtivo(index) {
     listaSection.forEach((section) => {

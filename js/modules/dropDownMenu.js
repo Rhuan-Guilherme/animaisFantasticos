@@ -5,9 +5,9 @@ export default function initDropDownMenu() {
 
   function handleClick(e) {
     e.preventDefault();
-    this.classList.add('ativo');
+    this.classList.add('active');
     outsideClick(this, ['click', 'touchstart'], () => {
-      this.classList.remove('ativo');
+      this.classList.remove('active');
     });
   }
 

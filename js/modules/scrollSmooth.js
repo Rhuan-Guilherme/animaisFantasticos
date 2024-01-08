@@ -1,5 +1,5 @@
 export default function ativaScrollSmooth() {
-  const linksInternos = document.querySelectorAll("[data-nav='menu'] a[href^='#']");
+  const linksInternos = document.querySelectorAll('[data-menu="suave"] a[href^="#"]');
 
   function activeScroll(event) {
     event.preventDefault();

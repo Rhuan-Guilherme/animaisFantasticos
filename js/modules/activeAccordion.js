@@ -1,5 +1,5 @@
 export default function ativaAccordionList() {
-  const listAccordion = document.querySelectorAll("[data-anime='accordion'] dt");
+  const listAccordion = document.querySelectorAll('[data-anime="accordion"] dt');
 
   function ativaAccordion() {
     this.classList.toggle('ativo');
