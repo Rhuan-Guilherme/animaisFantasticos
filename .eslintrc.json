@@ -11,6 +11,7 @@
     "rules": {
         "no-param-reassign": 0,
         "import/extensions": 0,
-        "quotes": 0
+        "quotes": 0,
+        "linebreak-style": 0
     }
 }
