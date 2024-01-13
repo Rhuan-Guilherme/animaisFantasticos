@@ -1,5 +1,5 @@
 import ativaAnimacaoScroll from './modules/animationScroll.js';
-import ativaScrollSmooth from './modules/scrollSmooth.js';
+import ScrollSmooth from './modules/scrollSmooth.js';
 import ativaAccordionList from './modules/activeAccordion.js';
 import ativaTabMenu from './modules/tabMenu.js';
 import initModal from './modules/modal.js';
@@ -10,8 +10,10 @@ import initFuncionamento from './modules/funcionamento.js';
 import initFetchAnimais from './modules/fetchAnimais.js';
 import initFetchBitcoin from './modules/fetchBitcoin.js';
 
+const scrollSuave = new ScrollSmooth('[data-menu="suave"] a[href^="#"]');
+scrollSuave.init();
+
 ativaAnimacaoScroll();
-ativaScrollSmooth();
 ativaAccordionList();
 ativaTabMenu();
 initModal();
