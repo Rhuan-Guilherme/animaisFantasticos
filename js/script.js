@@ -1,6 +1,6 @@
 import ativaAnimacaoScroll from './modules/animationScroll.js';
 import ScrollSmooth from './modules/scrollSmooth.js';
-import ativaAccordionList from './modules/activeAccordion.js';
+import AccordionList from './modules/activeAccordion.js';
 import ativaTabMenu from './modules/tabMenu.js';
 import initModal from './modules/modal.js';
 import initTooltip from './modules/tooltip.js';
@@ -13,8 +13,10 @@ import initFetchBitcoin from './modules/fetchBitcoin.js';
 const scrollSuave = new ScrollSmooth('[data-menu="suave"] a[href^="#"]');
 scrollSuave.init();
 
+const accordion = new AccordionList('[data-anime="accordion"] dt');
+accordion.init();
+
 ativaAnimacaoScroll();
-ativaAccordionList();
 ativaTabMenu();
 initModal();
 initTooltip();

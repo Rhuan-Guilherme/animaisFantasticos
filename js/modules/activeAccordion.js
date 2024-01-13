@@ -1,17 +1,28 @@
-export default function ativaAccordionList() {
-  const listAccordion = document.querySelectorAll('[data-anime="accordion"] dt');
-
-  function ativaAccordion() {
-    this.classList.toggle('ativo');
-    this.nextElementSibling.classList.toggle('ativo');
+export default class AccordionList {
+  constructor(list) {
+    this.listAccordion = document.querySelectorAll(list);
   }
 
-  if (listAccordion.length) {
-    listAccordion.forEach((item) => {
-      item.addEventListener('click', ativaAccordion);
-    });
+  // eslint-disable-next-line class-methods-use-this
+  toogleAccordion(item) {
+    item.classList.toggle('ativo');
+    item.nextElementSibling.classList.toggle('ativo');
+  }
 
-    listAccordion[0].classList.add('ativo');
-    listAccordion[0].nextElementSibling.classList.add('ativo');
+  // Adcionando o evento aos itens da lista
+  addEventAccordion() {
+    this.listAccordion.forEach((item) => {
+      item.addEventListener('click', () => this.toogleAccordion(item));
+    });
+  }
+
+  // iniciando a função
+  init() {
+    if (this.listAccordion.length) {
+      this.toogleAccordion(this.listAccordion[0]);
+      this.addEventAccordion();
+    }
+
+    return this;
   }
 }
