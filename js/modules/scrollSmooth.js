@@ -1,20 +1,35 @@
-export default function ativaScrollSmooth() {
-  const linksInternos = document.querySelectorAll('[data-menu="suave"] a[href^="#"]');
+export default class ScrollSmooth {
+  constructor(linksInternos, options) {
+    this.linksInternos = document.querySelectorAll(linksInternos);
 
-  function activeScroll(event) {
+    if (options === undefined) {
+      this.options = {
+        behavior: 'smooth',
+        block: 'start',
+      };
+    } else {
+      this.options = options;
+    }
+
+    this.activeScroll = this.activeScroll.bind(this);
+  }
+
+  activeScroll(event) {
     event.preventDefault();
-
     const href = event.currentTarget.getAttribute("href");
-
     const section = document.querySelector(href);
 
-    section.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
+    section.scrollIntoView(this.options);
+  }
+
+  addEventLinks() {
+    this.linksInternos.forEach((link) => {
+      link.addEventListener("click", this.activeScroll);
     });
   }
 
-  linksInternos.forEach((link) => {
-    link.addEventListener("click", activeScroll);
-  });
+  init() {
+    this.addEventLinks();
+    return this;
+  }
 }
