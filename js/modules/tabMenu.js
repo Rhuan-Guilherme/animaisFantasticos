@@ -1,23 +1,32 @@
-export default function ativaTabMenu() {
-  const listaAnimais = document.querySelectorAll('[data-tab="menu"] li');
-  const listaSection = document.querySelectorAll('[data-tab="content"] section');
-
-  function addClassAtivo(index) {
-    listaSection.forEach((section) => {
-      section.classList.remove("ativo");
-    });
-
-    const direcao = listaSection[index].dataset.anime;
-    listaSection[index].classList.add("ativo", direcao);
+export default class TabMenu {
+  constructor(menu, content) {
+    this.tabMenu = document.querySelectorAll(menu);
+    this.tabContent = document.querySelectorAll(content);
+    this.activeClass = 'ativo';
   }
 
-  if (listaAnimais.length && listaSection.length) {
-    listaSection[0].classList.add("ativo");
-
-    listaAnimais.forEach((item, index) => {
-      item.addEventListener("click", () => {
-        addClassAtivo(index);
-      });
+  addClassAtivo(index) {
+    this.tabContent.forEach((section) => {
+      section.classList.remove(this.activeClass);
     });
+
+    const direcao = this.tabContent[index].dataset.anime;
+    this.tabContent[index].classList.add(this.activeClass, direcao);
+  }
+
+  addEventTabNav() {
+    this.tabMenu.forEach((item, index) => {
+      item.addEventListener("click", () => this.addClassAtivo(index));
+    });
+  }
+
+  init() {
+    if (this.tabMenu.length && this.tabContent.length) {
+      // ativa primeiro item
+      this.addClassAtivo(0);
+      this.addEventTabNav();
+    }
+
+    return this;
   }
 }
